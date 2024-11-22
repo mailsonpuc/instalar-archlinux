@@ -30,12 +30,12 @@ Por fim, para conectar-se a uma rede rode o comando:
 cfdisk -z /dev/sda
 ```
 escolhar gpt
-
-/dev/sda1 (1000G para o /boot/efi)
+<pre>
+/dev/sda1 (1G para o /boot/efi)
 /dev/sda2 (2GB para swap)
 /dev/sda3 (40GB para /)
 /dev/sda4 (todo o resto para o /home)
-
+</pre>
 Após particionar o seu disco lembre de marcar a partição que receberá o GRUB (no meu caso a /dev/sda1 como BIOS boot ou EFI system na opção “Type”).
 
 Em seguida, faça o cfdisk escrever as partições clicando na opção “Write”
@@ -75,9 +75,6 @@ Criando o diretório /home:
 mkdir /mnt/home 
 ```
 Criando o diretório /boot:
-```bash
-mkdir /mnt/boot
-```
 
 **Criando o diretório** /boot/efi (se for utilizar UEFI):
 ```bash
@@ -89,9 +86,7 @@ Montando a partição /home:
 mount /dev/sda4 /mnt/home
 ```
 Montando a partição /boot:
-```bash
-mount /dev/sda1 /mnt/boot
-```
+
 Montando a partição /boot/efi (se for utilizar UEFI):
 ```bash
 mount /dev/sda1 /mnt/boot/efi
